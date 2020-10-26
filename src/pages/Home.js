@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function Home() {
     return (
-        <div>Hello from Home.</div>
+        <div class="blockquote text-center">Hello from Home.</div>
     )
 }
