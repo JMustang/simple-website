@@ -62,7 +62,7 @@ export default function TaskForm({history}) {
                         </form>
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-outline-light rounded-circle btn-lg" onClick={toSave}>Save</button>
+                        <button className="btn btn-outline-light btn-lg btn-block" onClick={toSave}>Save</button>
                     </div>
                 </div>
             </div>
