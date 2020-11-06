@@ -5,7 +5,7 @@ export default function TaskForm({history}) {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
-    const onChangeTltle = (event) => {
+    const onChangeTitle = (event) => {
         setTitle(event.target.value)
     }
 
@@ -44,7 +44,7 @@ export default function TaskForm({history}) {
                                     id="title"
                                     className="form-control"
                                     value={title}
-                                    onChange={onChangeTltle}
+                                    onChange={onChangeTitle}
                                 />
                             </div>
                             <div className="form-group">
