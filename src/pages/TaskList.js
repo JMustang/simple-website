@@ -28,12 +28,12 @@ export default function TaskList() {
                     </div>
                 )
                 : tasks.map(t => (
-                    <div className="col-md-3 p-2" key={t.id}>
+                    <div className="col-md-3 p-2 card border-info mb-3" key={t.id}>
                         <div className="card">
-                            <div className="card-header text-white text-weight-bold text-uppercase">
+                            <div className="card-header bg-info text-white text-weight-bold text-uppercase">
                 <h4 className="card-text text-center">{t.title}</h4>
                             </div>
-                            <div className="card-body">
+                            <div className="card-body bg-light">
                                 <p>{t.description}</p>
                                 <p>{
                                 t.status === 1 ? 'To do'
@@ -42,11 +42,11 @@ export default function TaskList() {
                                 : ''
                                 }</p>
                             </div>
-                            <div className="card-body">
+                            <div className="card-body bg-light">
                             <p>created_at {moment(t.created_at).fromNow()}</p>
                             <p>updated_at {moment(t.updated_at).fromNow()}</p>
                             </div>
-                            <div className="card-footer"></div>
+                            <div className="card-footer bg-info"></div>
                         </div>
                     </div>
                 ))
