@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getTasks } from '../services/TaskService';
 import moment from 'moment';
+import { FaPencilAlt } from 'react-icons/fa';
 
-export default function TaskList() {
+export default function TaskList({ history }) {
 
     const [ tasks, setTasks ] = useState([]) 
     const [ taskError, setTaskError ] = useState('')
@@ -16,6 +17,11 @@ export default function TaskList() {
             .then(res => setTasks(res))
             .catch(err => setTaskError(err))
     }
+
+    const onEdit = (id) => {
+        history.push('/task-edit', {id})
+    } 
+
     return (
         <div className="card">
             <div className="card-body">
@@ -46,7 +52,13 @@ export default function TaskList() {
                             <p>created_at {moment(t.created_at).fromNow()}</p>
                             <p>updated_at {moment(t.updated_at).fromNow()}</p>
                             </div>
-                            <div className="card-footer bg-info"></div>
+                            <div className="card-footer bg-info">
+                                <button className='btn btp-outline-light border-0'
+                                onClick={() => onEdit(t.id)}
+                                >
+                                    <FaPencilAlt />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))
