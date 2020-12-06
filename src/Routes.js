@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import TaskForm from "./pages/TaskForm";
 import TaskEdit from "./pages/TaskEdit";
 
-export default function App() {
+export default function Routes() {
   return (
     <BrowserRouter>
       <Navbar />

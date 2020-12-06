@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Routes from "./routes";
+import Auth from "./Auth";
 import "bootswatch/dist/cyborg/bootstrap.min.css";
 
-ReactDOM.render(<Routes />, document.getElementById("root"));
+ReactDOM.render(<Auth />, document.getElementById("root"));

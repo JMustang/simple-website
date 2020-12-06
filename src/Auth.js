@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from "react";
-import App from "./App";
+import Routes from "./Routes";
 import LoadError from "./routes/LoadError";
 import Loading from "./routes/Loading";
 import SignIn from "./routes/SignIn";
 import { checkToken } from "./services/AuthService";
 
-export default function Routes() {
+export default function Auth() {
   const [tokenStatus, setTokenStatus] = useState(1);
   const [token, setToken] = useState("");
+  const [statusError, setStatusError] = useState("");
 
   useEffect(() => {
     setToken(localStorage.getItem("task-token"));
     checkToken(token)
       .then((res) => {
-        res.status ? setTokenStatus(2) : setTokenStatus(3);
+        if (res.status_token) {
+          setTokenStatus(2);
+        } else {
+          setTokenStatus(3);
+          setStatusError(res.status_error);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -24,9 +30,9 @@ export default function Routes() {
   if (tokenStatus === 1) {
     return <Loading />;
   } else if (tokenStatus === 2) {
-    return <App />;
+    return <Routes />;
   } else if (tokenStatus === 3) {
-    return <SignIn />;
+    return <SignIn statusError={statusError} />;
   } else if (tokenStatus === 4) {
     return <LoadError />;
   }
