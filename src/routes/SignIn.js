@@ -124,7 +124,7 @@ export default function SignIn({ statusError }) {
           <div className="card-footer bg-info">
             <button
               type="button"
-              className="btn btn-outline-info bg-secondary btn-lg btn-block"
+              className="btn btn-outline-info bg-secondary btn-lg btn-block text-white"
               onClick={toSignIn}
             >
               Sign In
